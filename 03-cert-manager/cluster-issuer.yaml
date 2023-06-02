@@ -1,0 +1,8 @@
+# 创建用于签发证书的ClusterIssuer或Issuer资源
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+  name: letsencrypt-prod
+  namespace: argocd
+spec:
+  selfSigned: {}

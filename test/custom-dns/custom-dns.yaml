@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: coredns-custom
+  namespace: kube-system
+data:
+  argocd.43-159-227-113.nip.io.server: |
+    argocd.43-159-227-113.nip.io {
+      forward . 172.19.0.10
+    }

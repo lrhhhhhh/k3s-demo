@@ -1,0 +1,14 @@
+# 创建证书资源，定义名称、命名空间和要签发证书的域名列表
+# ArgoCD的证书
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: argocd-tls-certificate
+  namespace: argocd
+spec:
+  dnsNames:
+    - argocd.43-159-227-113.nip.io # 希望签发证书的主机名列表。
+  secretName: argocd-server-tls # 用于存储密钥和证书的 Secret 名称。
+  issuerRef:
+    name: letsencrypt-prod # 要使用的 ClusterIssuer 或 Issuer 的名称。
+    kind: ClusterIssuer
